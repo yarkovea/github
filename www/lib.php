@@ -26,7 +26,7 @@
     //$names["Петров"] = "Борис";
     //$names["Волков"] = "Сергей";
     //$names["Макаров"] = "Федор";
-    print_r ($names['Иванов']);
+    echo  'массив состоит из <b>'.(count($names)).'</b> символов<br>';
     foreach ($names as $key => $value) {
         echo "<b>$value $key</b><br>";
     }    
