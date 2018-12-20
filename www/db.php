@@ -14,7 +14,7 @@
     mysql_select_db($db_name) or die("база данных $db_name не найдена - mysql eror: ". mysql_error());
 
     /* Выполняем SQL-запрос */
-    $query = "SELECT * FROM user where first_name='Евге22ний'  order by code_user  limit 30";
+    $query = "SELECT * FROM user where first_name='Евгений'  order by code_user  limit 30";
     $result = mysql_query($query) or die("<br>ошибка запроса  $query  mysql eror:" . mysql_error());
     
    // проверка кол-ва полученных данных
