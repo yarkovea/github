@@ -1,6 +1,6 @@
 <?php
     
-    echo "<br> <i>файл</i> <b>подключен</b><br>";
+    echo "<br> <i>файл</i> lib.php  <b>подключен</b><br>";
     $i=10;
     
     // цикл while
