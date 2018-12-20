@@ -13,21 +13,27 @@
     mysql_select_db($db_name) or die("база данных $db_name не найдена - mysql eror: ". mysql_error());
 
     /* Выполняем SQL-запрос */
-    $query = "SELECT * FROM user where first_name='Евгений'  order by code_user  limit 30";
+    $query = "SELECT * FROM user where first_name='Евге22ний'  order by code_user  limit 30";
     $result = mysql_query($query) or die("<br>ошибка запроса  $query  mysql eror:" . mysql_error());
     
-   print_r (mysql_fetch_assoc($result));
+   // проверка кол-ва полученных данных
+    $num_rows = mysql_num_rows($result);
+    //echo "возвращено $num_rows значений.<br>";
     
-    /* Выводим результаты в html */
-    print "<table border=1>\n";
-    while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
-        print "\t<tr>\n";
-        foreach ($line as $col_value) {
-            print "\t\t<td>$col_value</td>\n";
+    if ($num_rows>0){
+        print "<table border=1>\n";
+        while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+            print "\t<tr>\n";
+            foreach ($line as $col_value) {
+                print "\t\t<td>$col_value</td>\n";
+            }
+            print "\t</tr>\n";
         }
-        print "\t</tr>\n";
+        print "</table>\n";
     }
-    print "</table>\n";
+    else {
+        echo "возвращено $num_rows значений.<br>";
+    }
 
     /* Освобождаем память от результата */
     mysql_free_result($result);
