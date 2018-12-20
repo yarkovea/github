@@ -1,4 +1,5 @@
 <?php
+    
     $db_host = 'localhost';
     $db_name = 'cook-shop';
     $db_username = 'root';
@@ -34,6 +35,22 @@
     else {
         echo "возвращено $num_rows значений.<br>";
     }
+    
+    // создание таблицы
+    // проверка на существование таблицы с таким же именем
+    //
+    
+    $table_create = "CREATE TABLE IF NOT EXISTS `primer` (
+        `id` int(10) NOT NULL AUTO_INCREMENT,
+        `name1` varchar(36) NOT NULL,
+        `name2` varchar(36) NOT NULL,
+        `name3` varchar(36) CHARACTER SET utf8mb4 NOT NULL,
+        `bigid` varchar(36) NOT NULL,
+        PRIMARY KEY (`id`)
+      ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+    ";
+    $table_create_1 = mysql_query($table_create) or die("<br>ошибка создания таблицы  mysql eror:" . mysql_error());;
+    
 
     /* Освобождаем память от результата */
     mysql_free_result($result);
