@@ -16,7 +16,7 @@
     $query = "SELECT * FROM user where first_name='Евгений'  order by code_user  limit 30";
     $result = mysql_query($query) or die("<br>ошибка запроса  $query  mysql eror:" . mysql_error());
     
-   
+   print_r (mysql_fetch_assoc($result));
     
     /* Выводим результаты в html */
     print "<table border=1>\n";
